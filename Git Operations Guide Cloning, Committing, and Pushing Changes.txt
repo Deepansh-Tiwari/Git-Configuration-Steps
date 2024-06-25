@@ -1,0 +1,99 @@
+Here are the detailed steps from cloning a repository to pushing changes to the `main` branch on GitHub:
+--------------------------------------------------------------------------------------------------------
+
+Step 1: Clone the Repository
+
+	1. Open Git Bash or your preferred terminal.
+
+	2. Navigate to the directory where you want to clone the repository (if needed):
+
+		cd /path/to/your/directory
+
+	3. Clone the repository from GitHub:
+		a) Using HTTPS Url :
+
+			git clone https://github.com/UserName/RepositoryName
+
+		b) Using SSH Url :
+
+			git@github.com:UserName/RepositoryNames.git
+
+	This command clones the repository from GitHub to your local machine.
+
+Step 2: Navigate into the Cloned Repository
+
+	1. Change directory into the cloned repository:
+
+		cd RepositoryNames
+
+	Navigate into the directory you just cloned.
+
+Step 3: Make Changes
+
+	1. Make changes to files within the repository using your preferred text editor or IDE.
+
+	2. Stage the changes for commit:
+
+		git add . ----> applicable for all files
+
+			or
+
+		git add -a ----> applicable for all files
+
+			or
+
+		git add -A ----> applicable for all files
+
+			or
+
+		git add <file_name> ----> applicable for specific file only
+
+   	This stages all changes. Replace `.` with specific file names to stage only certain files.
+
+	3. Commit the changes:
+
+		git commit -m "Your commit message here"
+
+	Replace `"Your commit message here"` with a concise description of your changes.
+
+Step 4: Push Changes to GitHub
+
+	1. Push your committed changes to the `main` branch on GitHub:
+
+		git push origin main
+
+	This command pushes the committed changes from your local `main` branch to the `main` branch on the remote repository (`origin`).
+
+	2. If this is your first push to `main`, you may need to set the upstream branch:
+
+		git push -u origin main
+
+	This establishes a tracking relationship between your local `main` branch and the `main` branch on the remote repository (`origin`).
+
+Step 5: Verify Changes on GitHub
+
+	1. Visit your repository on GitHub (`https://github.com/UserName/RepositoryName`).
+
+	2. Navigate to the `main` branch to verify that your changes have been pushed successfully.
+
+Additional Notes:
+------------------
+- Ensure you have the necessary permissions to push changes to the repository on GitHub (`UserName/RepositoryName`).
+- Double-check your Git configurations, such as remote URL (`git remote -v`) and branch (`git branch`) to avoid errors.
+- Always pull changes (`git pull`) before you push to avoid conflicts, especially in a collaborative environment.
+
+By following these steps, you can effectively clone a repository, make changes, and push those changes to the `main` branch on GitHub. Adjust the branch names (`main` or `master`) based on your repository's configuration.
+
+Switching from HTTP to SSH URLs for Git operations:
+----------------------------------------------------
+If you have already configured SSH keys but cloned the repository using an HTTP URL, and encounter credential prompts when pushing changes, you can use the SSH URL directly to push changes.
+
+To do so, execute the following command:
+
+	git remote set-url origin git@github.com:UserName/RepositoryName.git
+
+Now push your code:
+
+	git push -u origin main
+
+These instructions clarify the process of switching from HTTP to SSH URLs for Git operations and ensure clarity in the steps provided.
