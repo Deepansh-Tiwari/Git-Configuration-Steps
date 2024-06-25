@@ -1,0 +1,63 @@
+Here's a Git configuration steps document:
+------------------------------------------
+
+Step 1: Download Git (Standalone Installer) from "https://git-scm.com/download"
+
+Step 2: Install Git (select all recommended options).
+
+Step 3: Generate SSH Keys to connect with GitHub:
+
+	1. Open Git Bash.
+
+	2. Paste the text below, replacing the email used in the example with your GitHub email address:
+
+		ssh-keygen -t ed25519 -C "your_email@example.com"
+   
+	Note: If your system does not support the Ed25519 algorithm, use:
+
+		ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+	This command creates a new SSH key with the provided email as a label.
+
+	- When prompted to "Enter a file in which to save the key," you can press Enter to accept the default location. If you have previously created SSH keys, consider giving this key a custom name.
+
+	Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM): [Press Enter]
+
+	- For passphrase entry, you can press Enter twice if not interested in setting a passphrase.
+
+	Enter passphrase (empty for no passphrase): [Type a passphrase]
+	Enter same passphrase again: [Type passphrase again]
+
+
+Step 4: Add the SSH key to your GitHub account:
+
+	1. Copy the SSH public key to your clipboard. If your SSH public key file has a different name, adjust the filename accordingly.
+
+		$ clip < ~/.ssh/id_ed25519.pub
+		# Copies the contents of the id_ed25519.pub file to your clipboard
+
+	Alternatively, navigate to the default Git directory (e.g., "C:\Users\<username>\.ssh") and copy the generated public key from the "id_rsa.pub" file.
+
+	2. On GitHub, click your profile photo in the upper-right corner of any page, then click **Settings**.
+
+	3. In the sidebar, click **SSH and GPG keys** under the "Access" section.
+
+	4. Click **New SSH key** or **Add SSH key**.
+
+	5. In the "Title" field, provide a descriptive label for the new key (e.g., "Personal laptop").
+
+	6. Choose the type of key (authentication or signing).
+
+	7. In the "Key" field, paste your public key.
+
+	8. Click **Add SSH key**.
+
+	9. If prompted, confirm access to your GitHub account.
+
+Step 5: Clone a repository from GitHub:
+
+	To verify that SSH keys are configured correctly, clone a repository using either the HTTPS or SSH URL by entering the following command in Git Bash:
+
+		git clone <url>
+
+	If the repository clones successfully, your SSH keys are configured correctly, and you are ready to use Git with GitHub. Enjoy sharing!
